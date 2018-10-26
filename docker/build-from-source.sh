@@ -46,7 +46,7 @@ make -j4
 # for install, just copy stuff to mysql plugin dir
 PLUGINDIR=$(mysql_config --plugindir)
 echo "PLUGINDIR is $PLUGINDIR"
-cp /_src/pinba2/mysql_engine/.libs/libpinba_engine2.so $PLUGINDIR
+cp /_src/pinba2/mysql_engine/.libs/libpinba_engine2.so /usr/lib64/mariadb/plugin
 
 # clean everything
 rm -rf /_src
