@@ -44,7 +44,9 @@ make -j4
 
 # FIXME: this needs to be easier
 # for install, just copy stuff to mysql plugin dir
-cp /_src/pinba2/mysql_engine/.libs/libpinba_engine2.so `mysql_config --plugindir`
+PLUGINDIR=$(mysql_config --plugindir)
+echo "PLUGINDIR is $PLUGINDIR"
+cp /_src/pinba2/mysql_engine/.libs/libpinba_engine2.so $PLUGINDIR
 
 # clean everything
 rm -rf /_src
