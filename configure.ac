@@ -31,7 +31,7 @@ AC_CHECK_FUNCS([sysconf recvmmsg])
 
 # compiler flags
 common_flags=" -pthread"
-common_flags="$common_flags -Wall -Wextra -Wformat-security -Werror"
+common_flags="$common_flags -Wall -Wextra -Wformat-security"
 common_flags="$common_flags -Wno-unused -Wno-unused-parameter -Wno-unused-variable -Wno-missing-field-initializers"
 common_flags="$common_flags -fno-omit-frame-pointer"
 common_flags="$common_flags -fPIC -DPIC"
@@ -161,12 +161,12 @@ else
 
 	# now check installed headers
 	if test "$mysql_headers_found" != "1"; then
-		AC_MSG_CHECKING([mysql installed headers in $with_mysql/include/mysql])
+		AC_MSG_CHECKING([mysql installed headers in $with_mysql/include/mysql/server])
 		mysql_headers_found=0
 		HEADERS="private/handler.h private/table.h"
 
 		for file in $HEADERS; do
-			if test -r "$with_mysql/include/mysql/$file"; then
+			if test -r "$with_mysql/include/mysql/server/$file"; then
 				mysql_headers_found=1
 				mysql_headers_type="installed"
 			fi
@@ -193,7 +193,8 @@ else
 			MYSQL_INC="$MYSQL_INC -I$with_mysql/libbinlogevents/export -I$with_mysql/libbinlogevents/include"
 			;;
 		"installed")
-			MYSQL_INC="-I$with_mysql/include -I$with_mysql/include/mysql -I$with_mysql/include/mysql/private"
+			#MYSQL_INC="-I$with_mysql/include -I$with_mysql/include/mysql -I$with_mysql/include/mysql/server -I$with_mysql/include/mysql/server/private"
+			MYSQL_INC="-I$with_mysql/include/mysql/server -I$with_mysql/include/mysql/server/private"
 			;;
 		*)
 			;;

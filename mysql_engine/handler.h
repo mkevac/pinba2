@@ -7,7 +7,10 @@
 #ifdef PINBA_USE_MYSQL_SOURCE
 #include <sql/handler.h>
 #else
-#include <mysql/private/handler.h>
+#include <my_global.h>                   /* ulonglong */
+#include <thr_lock.h>                    /* THR_LOCK, THR_LOCK_DATA */
+#include <private/handler.h>                     /* handler */
+#include <my_base.h>                     /* ha_rows */
 #endif // PINBA_USE_MYSQL_SOURCE
 
 ////////////////////////////////////////////////////////////////////////////////////////////////

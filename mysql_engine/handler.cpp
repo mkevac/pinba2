@@ -17,9 +17,9 @@
 #include <sql/handler.h> // <mysql/private/handler.h>
 #include <include/mysqld_error.h> // <mysql/mysqld_error.h>
 #else
-#include <mysql/private/field.h>
-#include <mysql/private/handler.h>
-#include <mysql/mysqld_error.h>
+#include <private/field.h>
+#include <private/handler.h>
+#include <mysqld_error.h>
 #endif // PINBA_USE_MYSQL_SOURCE
 
 #include <meow/defer.hpp>

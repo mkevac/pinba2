@@ -7,8 +7,10 @@
 #	include <mysql_version.h>
 #	include <mysql/plugin.h>
 #else
-#	include <mysql/mysql_version.h>
-#	include <mysql/plugin.h>
+#	include "my_global.h"                   /* ulonglong */
+#	include "thr_lock.h"                    /* THR_LOCK, THR_LOCK_DATA */
+#	include "handler.h"                     /* handler */
+#	include "my_base.h"                     /* ha_rows */
 #endif // PINBA_USE_MYSQL_SOURCE
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
