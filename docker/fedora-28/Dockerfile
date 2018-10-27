@@ -1,7 +1,7 @@
 FROM        fedora:28
 MAINTAINER  Anton Povarov "anton.povarov@gmail.com"
 
-RUN         dnf install -y git-core gcc gcc-c++ boost-devel cmake autoconf automake libtool mariadb-devel
+RUN         dnf install -y git-core gcc gcc-c++ boost-devel cmake autoconf automake libtool mariadb-devel mariadb-gssapi-server
 RUN         dnf install -y file hostname mariadb-server
 
 RUN         mkdir -p /_src && cd /_src && \

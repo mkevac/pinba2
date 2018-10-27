@@ -8,9 +8,6 @@ if [ $1 = "mysqld" ]; then
 	# fedora mysqld is in special location
 	ln -snf /usr/libexec/mysqld /usr/local/bin
 
-	# disable gss auth as it's not installed in this container
-	rm -rf /etc/my.cnf.d/auth_gssapi.cnf
-
 	# create default databases
 	# too expensive to perform on container startup really
 	mysql_install_db --rpm
